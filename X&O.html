@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> XO game </title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<div class="drag">
+    <div class="dragbox">
+        <div class="X" draggable="true" ondragstart="drag(event)" id="X1"></div>
+    </div>
+    <div class="dragbox">
+        <div class="X" draggable="true" ondragstart="drag(event)" id="X2"></div>
+    </div>
+    <div class="dragbox">
+        <div class="X" draggable="true" ondragstart="drag(event)" id="X3"></div>
+    </div>
+    <div class="dragbox">
+        <div class="X" draggable="true" ondragstart="drag(event)" id="X4"></div>
+    </div>
+    <div class="dragbox">
+        <div class="X" draggable="true" ondragstart="drag(event)" id="X5"></div>
+    </div>
+</div>
+    <div class="board"> 
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      
+    </div>
+
+    <div class="drag">
+        <div class="dragbox">
+            <div class="O" draggable="true" ondragstart="drag(event)" id="O1"></div>
+        </div>
+        <div class="dragbox">
+            <div class="O" draggable="true" ondragstart="drag(event)" id="O2"></div>
+        </div>
+        <div class="dragbox">
+            <div class="O" draggable="true" ondragstart="drag(event)" id="O3"></div>
+        </div>
+        <div class="dragbox">
+            <div class="O" draggable="true" ondragstart="drag(event)" id="O4"></div>
+        </div>
+        <div class="dragbox">
+            <div class="O" draggable="true" ondragstart="drag(event)" id="O5"></div>
+        </div>
+
+</div>
+
+<button class="reset" onclick="reset(event)">RESET</button>
+
+<script>
+   function allowDrop(event){
+    event.preventDefault();
+
+
+   }
+
+   function drag(event){
+    event.dataTransfer.setData("text", event.target.id);
+
+   }
+
+   function drop(event){
+   event.preventDefault();
+   var data = event.dataTransfer.getData("text");
+   event.target.appendChild(document.getElementById(data));
+
+   }
+
+   
+function reset(event){
+    location.reload();
+}
+
+
+</script>
+
+</body>
+
+
+
+
+
+
+    </html>
